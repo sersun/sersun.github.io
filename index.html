@@ -1,99 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
-    <title>Denis Sersun | Data Analytics "</title>
-    <style>
-        .onest-<uniquifier> {
-  font-family: "Onest", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-        body {
-            font-family: Onest, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+	<title>Denis Sersun | Data Analytics</title>
+	<style>
+		/* Font styles for Onest font */
+		@font-face {
+			font-family: "Onest";
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		/* CSS for body and header */
+		body {
+			font-family: 'Onest', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f5;
+			overflow-x: hidden;
+		}
+
+		header {
+			background-color: #53565B;
+			color: #fff;
+			padding: 5px;
+			text-align: center;
+		}
+
+		/* CSS for main container */
+		.container {
+			max-width: 800px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			text-align: justify;
+		}
+
+		/* CSS for headings and paragraphs */
+		h1, h2, h3 {
+			color: #cccccc;
+		}
+
+		p {
+			line-height: 1.6;
+		}
+
+		/* CSS for the skills list */
+		#skills-list {
+			columns: 3; /* Divide the list into three columns */
+			column-gap: 20px; /* Optional: Add gap between columns */
+			padding: 0; /* Remove default padding */
+			list-style: none; /* Remove default list styles */
+		}
+
+		/* CSS for individual skills */
+		#skills-list li {
+			margin-bottom: 10px; /* Add space between list items */
+		}
+
+		/* CSS for the projects section */
+		#projects-container {
+			columns: 3; /* Divide the projects into three columns */
+			column-gap: 20px; /* Optional: Add gap between columns */
+			display: flex; /* Use flexbox */
+    		justify-content: space-between; /* Align items with space between *
+		}
+
+		.project {
+			margin-bottom: 20px; /* Add space between projects */
+			break-inside: avoid; /* Prevent a project from breaking across columns */
+		}
+
+		.box {
+			display: flex;
+			justify-content: center; /* Horizontally centers the content */
+			align-items: center; /* Vertically centers the content */
+			margin-top:25px;
+		}
+
+		.circle-container {
+		    width: 400px; /* Ширина круглого контейнера */
+			height: 400px; /* Высота круглого контейнера */
+			border-radius: 50%; /* Делаем контейнер круглым */
+			background-color: #f0f0f0; /* Цвет фона круглого контейнера */
+			float: left; /* Для обтекания текста */
+			margin-right: 20px; /* Дополнительный отступ справа */
+			shape-outside: circle(); /* Формируем контур круга */
+			clip-path: circle(); /* Отсекаем лишнее */
+		}
+
+		  /* CSS to ensure the image fits inside the container */
+		  .circle-container img {
+			width: 100%; /* Ensures the image fills the container */
+			height: auto; /* Maintains aspect ratio */
+			display: block; /* Ensures proper spacing */
+		  }
+
+		/* CSS for the blocks */
+		  .blocks {
+			margin-left: 20px; /* Adjust spacing */
+			display: flex;
+			align-items: center; /* Aligns items vertically */
+			justify-content: center; /* Aligns items horizontally */
+			gap: 65px; /* Adjust spacing between blocks */
+		   }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            }
+
+        nav h2 {
+            margin-bottom: 35px;
         }
-        header {
-            background-color: #555555;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
+
+        nav a:hover {
+    		color: #FFD700; /* Change the color to gold (#FFD700) when hovered over */
+		}
+
+
+        a {
+            color: #53565B;
+            text-decoration: none;
         }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: justify;
-        }
-        h1, h2, h3 {
-            color: #007bff;
-        }
-        p {
-            line-height: 1.6;
-        }
-        .project {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 20px;
-        }
-        .project:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-    </style>
+
+		#back-to-top {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			display: none; /* Initially hide the button */
+			background-color: #53565B;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+		}
+
+		#back-to-top:hover {
+   			background-color: #41424C;
+		}
+
+
+		footer {
+			padding: 5px;
+			text-align: center;
+			font-size: 14px;
+			color: #666666;
+			position: relative;
+			bottom: 0;
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
-    <header>
-        <h1>Data Analyst Portfolio</h1>
-    </header>
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am a dedicated data analyst adept at dissecting and elucidating vast and intricate datasets to facilitate informed business decisions. With a background in Finance, Lending, and Accounting, coupled with a robust understanding of diverse economic domains, I possess a comprehensive skill set. My enthusiasm lies in automating processes and coding, evidenced by my portfolio of successful automation projects.
-In my previous role, I played a pivotal role in monitoring the incoming loan portfolio of a bank, managing credit and market risk, and contributing to the development of an Early Warning System (EWS) for the automated and timely monitoring of MSE loans.
-            </p>
-        </section>
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Data Analysis</li>
-                <li>Statistical Analysis</li>
-                <li>Power BI, Tableau</li>
-                <li>MS Excel (Advenced)</li>
-                <li>SQL</li>
-                <li>Python</li>
-                <li>Java Core</li>
-                <li>Risk Management</li>
-            </ul>
-        </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of Project 1</p>
-            </div>
-            <div class="project">
-                <h3>Project</h3>
-                <p>Description of Project 2</p>
-            </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Email: d.sersun@gmail.com</p>
-            <p>Phone: 980-505-4210</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/denis-sersun/">Example</a></p>
-        </section>
-    </div>
+<header>
+	<h1>Denis Sersun</h1>
+</header>
+
+<div class="container">
+	<div class="box">
+		<div class="blocks">
+			<div class="circle-container">
+				<img alt="My Photo" src="photo.jpg">
+			</div>
+			<nav>
+				<h2><a href="#about">About Me</a></h2>
+				<h2><a href="#skills">Skills</a></h2>
+				<h2><a href="#projects">Projects</a></h2>
+				<h2><a href="#contact">Contact Me</a></h2>
+			</nav>
+		</div>
+	</div>
+
+	<section id="about">
+		<h2>About Me</h2>
+		<p>I am a dedicated data analyst adept at dissecting and elucidating vast and intricate datasets to facilitate
+			informed business decisions. With a background in Finance, Lending, and Accounting, coupled
+			with a robust understanding of diverse economic domains, I possess a comprehensive skill set. My enthusiasm
+			lies in automating processes and coding, evidenced by my portfolio of successful automation projects.
+			In my previous role, I played a pivotal role in monitoring the incoming loan portfolio of a bank, managing
+			credit and market risk, and contributing to the development of an Early Warning System (EWS) for the
+			automated and timely monitoring of MSE loans.</p>
+		<a id="back-to-top" href="#">Back to Top</a>
+	</section>
+
+	<section id="skills">
+		<h2>Skills</h2>
+		<ul id="skills-list">
+			<li>Data Analysis</li>
+			<li>Statistical Analysis</li>
+			<li>Power BI, Tableau</li>
+			<li>MS Excel (Advanced)</li>
+			<li>SQL</li>
+			<li>Python</li>
+			<li>Java Core</li>
+			<li>Risk Management</li>
+		</ul>
+		<a id="back-to-top" href="#">Back to Top</a>
+	</section>
+
+	<section id="projects">
+		<h2>Projects</h2>
+		<div id="projects-container">
+			<div class="project">
+				<h3>Project 1</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dicta exercitationem laboriosam
+					laborum minima, quaerat. Esse eum placeat reiciendis suscipit.</p>
+				<a href="https://github.com/your-username/project1" target="_blank" rel="noopener noreferrer">View on GitHub &raquo;</a>
+			</div>
+			<div class="project">
+				<h3>Project 2</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cupiditate eum laboriosam minima
+					necessitatibus sed, sint! Eveniet fuga inventore possimus.</p>
+				<a href="https://github.com/your-username/project2" target="_blank" rel="noopener noreferrer">View on GitHub &raquo;</a>
+			</div>
+			<div class="project">
+				<h3>Project 3</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi illo ipsum saepe vero. Ab aperiam
+					delectus dolore, eligendi placeat rerum similique veritatis!</p>
+				<a href="https://github.com/your-username/project3" target="_blank" rel="noopener noreferrer">View on GitHub &raquo;</a>
+			</div>
+		</div>
+		<a id="back-to-top" href="#">Back to Top</a>
+	</section>
+
+	<section id="contact">
+		<h2>Contact Me</h2>
+		<ul>
+			<li><strong>Email:</strong> <a href="mailto:d.sersun@gmail.com">d.sersun@gmail.com</a></li>
+			<li><strong>Phone:</strong> <a href="tel:980-505-4210">980-505-4210</a></li>
+			<li><strong>GitHub:</strong> <a href="https://github.com/sersun" target="_blank" rel="noopener noreferrer">My GitHub Profile</a></li>
+			<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/denis-sersun/" target="_blank" rel="noopener noreferrer">Denis Sersun's LinkedIn Profile</a></li>
+		</ul>
+		<a id="back-to-top" href="#">Back to Top</a>
+	</section>
+
+</div>
+<footer>
+	<p>&copy; 2024 Denis Sersun. All rights reserved.</p>
+	<a id="back-to-top" href="#">Back to Top</a>
+</footer>
+
 </body>
+<script src="script.js"></script>
 </html>
