@@ -67,13 +67,15 @@
 			columns: 3; /* Divide the projects into three columns */
 			column-gap: 20px; /* Optional: Add gap between columns */
 			display: flex; /* Use flexbox */
-    		justify-content: space-between; /* Align items with space between *
+    			justify-content: space-between; /* Align items with space between *
 		}
 
 		.project {
-			margin-bottom: 20px; /* Add space between projects */
 			break-inside: avoid; /* Prevent a project from breaking across columns */
+			width: calc(33.33% - 20px); /* Calculate width to fit three columns with 20px spacing */
+    			margin-bottom: 20px; /* Add space between projects */
 		}
+		
 
 		.box {
 			display: flex;
