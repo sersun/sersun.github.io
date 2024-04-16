@@ -1,184 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
-	<title>Denis Sersun | Data Analytics</title>
-	<style>
-		/* Font styles for Onest font */
-		@font-face {
-			font-family: "Onest";
-			font-weight: normal;
-			font-style: normal;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <title>Denis Sersun | Data Analytics</title>
+    <style>
+        body {
+            font-family: 'Onest', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
 
-		/* CSS for body and header */
-		body {
-			font-family: 'Onest', sans-serif;
-			margin: 0;
-			padding: 0;
-			background-color: #f5f5f5;
-			overflow-x: hidden;
-		}
+        header {
+            background-color: #53565B;
+            color: #fff;
+            padding: 5px;
+            text-align: center;
+        }
 
-		header {
-			background-color: #53565B;
-			color: #fff;
-			padding: 5px;
-			text-align: center;
-		}
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
 
-		/* CSS for main container */
-		.container {
-			max-width: 800px;
-			margin: 20px auto;
-			padding: 20px;
-			background-color: #fff;
-			border-radius: 20px;
-			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			text-align: justify;
-		}
+        h1, h2, h3 {
+            color: #cccccc;
+        }
 
-		/* CSS for headings and paragraphs */
-		h1, h2, h3 {
-			color: #cccccc;
-		}
+        p {
+            line-height: 1.6;
+        }
 
-		p {
-			line-height: 1.6;
-		}
+        #skills-list {
+            columns: 3;
+            column-gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
 
-		/* CSS for the skills list */
-		#skills-list {
-			columns: 3; /* Divide the list into three columns */
-			column-gap: 20px; /* Optional: Add gap between columns */
-			padding: 0; /* Remove default padding */
-			list-style: none; /* Remove default list styles */
-		}
+        #skills-list li {
+            margin-bottom: 10px;
+        }
 
-		/* CSS for individual skills */
-		#skills-list li {
-			margin-bottom: 10px; /* Add space between list items */
-		}
+        #projects-container {
+            display: block; /* Changed from flex to block */
+        }
 
-		/* CSS for the projects section */
-		#projects-container {
-			columns: 1;  Divide the projects into three columns
-			column-gap: 20px; /* Optional: Add gap between columns */
-			display: flex; /* Use flexbox */
-    			justify-content: space-between; /* Align items with space between *
-		}
+        .project {
+            margin-bottom: 20px;
+        }
 
-		.project {
-			break-inside: avoid; /* Prevent a project from breaking across columns */
-			min-width: 28%;
-    			margin-bottom: 20px; /* Add space between projects */
-		}
-		
+        .circle-container {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            float: left;
+            margin-right: 20px;
+            shape-outside: circle();
+            clip-path: circle();
+        }
 
-		.box {
-			display: flex;
-			justify-content: center; /* Horizontally centers the content */
-			align-items: center; /* Vertically centers the content */
-			margin-top:25px;
-		}
+        .circle-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-		.circle-container {
-		    width: 400px; /* Ширина круглого контейнера */
-			height: 400px; /* Высота круглого контейнера */
-			border-radius: 50%; /* Делаем контейнер круглым */
-			background-color: #f0f0f0; /* Цвет фона круглого контейнера */
-			float: left; /* Для обтекания текста */
-			margin-right: 20px; /* Дополнительный отступ справа */
-			shape-outside: circle(); /* Формируем контур круга */
-			clip-path: circle(); /* Отсекаем лишнее */
-		}
-
-		  /* CSS to ensure the image fits inside the container */
-		  .circle-container img {
-			width: 100%; /* Ensures the image fills the container */
-			height: auto; /* Maintains aspect ratio */
-			display: block; /* Ensures proper spacing */
-		  }
-
-		/* CSS for the blocks */
-		  .blocks {
-			margin-left: 20px; /* Adjust spacing */
-			display: flex;
-			align-items: center; /* Aligns items vertically */
-			justify-content: center; /* Aligns items horizontally */
-			gap: 65px; /* Adjust spacing between blocks */
-		   }
+        .blocks {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 65px;
+        }
 
         nav {
             display: flex;
             flex-direction: column;
             align-items: left;
-            }
+        }
 
         nav h2 {
             margin-bottom: 35px;
         }
 
         nav a:hover {
-    		color: #FFD700; /* Change the color to gold (#FFD700) when hovered over */
-		}
-
+            color: #FFD700;
+        }
 
         a {
             color: #53565B;
             text-decoration: none;
         }
 
-		#back-to-top {
-			position: fixed;
-			bottom: 20px;
-			right: 20px;
-			display: none; /* Initially hide the button */
-			background-color: #53565B;
-			color: #fff;
-			padding: 10px 20px;
-			border-radius: 5px;
-			text-decoration: none;
-		}
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #53565B;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
 
-		#back-to-top:hover {
-   			background-color: #41424C;
-		}
+        #back-to-top:hover {
+            background-color: #41424C;
+        }
 
-
-		footer {
-			padding: 0px;
-			text-align: center;
-			font-size: 12px;
-			color: #666666;
-			position: relative;
-			bottom: 0;
-			width: 100%;
-		}
-	</style>
+        footer {
+            padding: 0px;
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <header>
-	<h1>Denis Sersun</h1>
+    <h1>Denis Sersun</h1>
 </header>
 
 <div class="container">
-	<div class="box">
-		<div class="blocks">
-			<div class="circle-container">
-				<img alt="My Photo" src="photo.jpg">
-			</div>
-			<nav>
-				<h2><a href="#about">About Me</a></h2>
-				<h2><a href="#skills">Skills</a></h2>
-				<h2><a href="#projects">Projects</a></h2>
-				<h2><a href="#contact">Contact Me</a></h2>
-			</nav>
-		</div>
-	</div>
-
+    <div class="box">
+        <div class="blocks">
+            <div class="circle-container">
+                <img alt="My Photo" src="photo.jpg">
+            </div>
+            <nav>
+                <h2><a href="#about">About Me</a></h2>
+                <h2><a href="#skills">Skills</a></h2>
+                <h2><a href="#projects">Projects</a></h2>
+                <h2><a href="#contact">Contact Me</a></h2>
+            </nav>
+        </div>
+    </div>
 	<section id="about">
 		<h2>About Me</h2>
 		<p>I am a dedicated data analyst adept at dissecting and elucidating vast and intricate datasets to facilitate
@@ -249,8 +218,8 @@
 
 </div>
 <footer>
-	<p>&copy; 2024 Denis Sersun. All rights reserved.</p>
-	<a id="back-to-top" href="#">Back to Top</a>
+    <p>&copy; 2024 Denis Sersun. All rights reserved.</p>
+    <a id="back-to-top" href="#">Back to Top</a>
 </footer>
 
 </body>
