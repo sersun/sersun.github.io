@@ -1,16 +1,33 @@
-window.addEventListener('scroll', function() {
-    var backToTopButton = document.getElementById('back-to-top');
-    if (window.scrollY > 300) { // Show the button when scrolling down 300px from the top
-        backToTopButton.style.display = 'block';
-    } else {
-        backToTopButton.style.display = 'none';
-    }
-});
+const backToTopButton = document.getElementById('back-to-top');
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('primary-menu');
 
-document.getElementById('back-to-top').addEventListener('click', function(event) {
-    event.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Smooth scrolling to the top
+function updateBackToTopVisibility() {
+    if (!backToTopButton) {
+        return;
+    }
+
+    backToTopButton.classList.toggle('is-visible', window.scrollY > 320);
+}
+
+if (backToTopButton) {
+    window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+    updateBackToTopVisibility();
+}
+
+if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', String(!isExpanded));
+        navLinks.classList.toggle('is-open', !isExpanded);
+        document.body.classList.toggle('nav-open', !isExpanded);
     });
-});
+
+    navLinks.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLAnchorElement) {
+            navToggle.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('is-open');
+            document.body.classList.remove('nav-open');
+        }
+    });
+}
